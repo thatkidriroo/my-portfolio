@@ -1,0 +1,24 @@
+services:
+  palmer:
+    image: nginx:stable-alpine
+    container_name: palmer
+    ports:
+      - "7070:80"
+    volumes:
+      - /DATA/AppData/palmer/html:/usr/share/nginx/html:ro
+      - /DATA/AppData/palmer/data:/DATA
+      - /DATA/AppData/palmer/logs:/var/log/nginx
+    networks:
+      - palmer-net
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+networks:
+  palmer-net:
+    name: palmer-net
+    driver: bridge
