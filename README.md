@@ -2,7 +2,7 @@
 
 Personal portfolio website built with vanilla JavaScript, Three.js, and Vite.
 
-**kusekwa.space**
+**[kusekwa.space](https://kusekwa.space)**
 
 ## Tech
 
