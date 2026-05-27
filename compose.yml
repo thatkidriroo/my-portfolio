@@ -1,12 +1,11 @@
 services:
   palmer:
-    image: nginx:stable-alpine
+    build: .
+    image: ghcr.io/thatkidriroo/my-portfolio:latest
     container_name: palmer
     ports:
       - "7070:80"
     volumes:
-      - /DATA/AppData/palmer/html:/usr/share/nginx/html:ro
-      - /DATA/AppData/palmer/data:/DATA
       - /DATA/AppData/palmer/logs:/var/log/nginx
     networks:
       - palmer-net
