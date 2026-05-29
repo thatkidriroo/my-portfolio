@@ -1,5 +1,6 @@
 import './style.css';
 import { createScene } from './scene.js';
+import { inject } from '@vercel/analytics';
 
 const slideCount = 17;
 const { start, setScroll } = createScene(slideCount);
@@ -125,3 +126,6 @@ track.addEventListener('touchcancel', dragEnd);
 
 requestAnimationFrame(update);
 start();
+
+// Initialize Vercel Analytics
+inject();
